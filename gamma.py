@@ -1,16 +1,16 @@
-import dotenv
+#import dotenv
 import os
 import asyncio
 from typing import Union
 from discord import option
-dotenv.load_dotenv()
-token = str(os.getenv("TOKEN"))
+#dotenv.load_dotenv()
+#token = str(os.getenv("TOKEN"))
 
 import discord
 import os 
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 
-load_dotenv()
+#load_dotenv()
 bot = discord.Bot()
 
 @bot.event
@@ -31,6 +31,8 @@ async def ping(ctx):
 async def queue(ctx: discord.ApplicationContext, queue: str):
     await ctx.respond(f"Queuing you for {queue}...")
     member = ctx.author
+    
+    print(f"Added {ctx.author.user} ")
     role = discord.utils.get(ctx.guild.roles, name=f"{queue} Queue")
     await member.add_roles(role, reason=None, atomic=True)
     await asyncio.sleep(1)
@@ -57,4 +59,4 @@ async def unqueue(ctx):
     await asyncio.sleep(1)
     await ctx.send("Removed you from the queue!")
 
-bot.run(os.getenv('TOKEN'))
+#bot.run(os.getenv('TOKEN'))
