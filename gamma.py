@@ -1,13 +1,13 @@
 import os
 import asyncio
-#import dotenv
+import dotenv
 from typing import Union
 from discord import option
-#dotenv.load_dotenv()
-#token = str(os.getenv("TOKEN"))
+dotenv.load_dotenv()
+token = str(os.getenv("TOKEN"))
 
 import discord
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 
 #load_dotenv()
 bot = discord.Bot()
