@@ -1,13 +1,12 @@
-#import dotenv
 import os
 import asyncio
+#import dotenv
 from typing import Union
 from discord import option
 #dotenv.load_dotenv()
 #token = str(os.getenv("TOKEN"))
 
 import discord
-import os 
 #from dotenv import load_dotenv
 
 #load_dotenv()
@@ -27,12 +26,10 @@ async def ping(ctx):
 
 @bot.slash_command(name="queue", description="Group up for raids")
 @option("queue", description="Dungeons, Raids, or Roulettes", choices=["Dungeons", "Raids", "Roulettes"])
-
 async def queue(ctx: discord.ApplicationContext, queue: str):
     await ctx.respond(f"Queuing you for {queue}...")
     member = ctx.author
-    
-    print(f"Added {ctx.author.user} ")
+    print(f"Added {ctx.author.user} to the {queue} queue")
     role = discord.utils.get(ctx.guild.roles, name=f"{queue} Queue")
     await member.add_roles(role, reason=None, atomic=True)
     await asyncio.sleep(1)
@@ -47,7 +44,7 @@ async def queue(ctx: discord.ApplicationContext, queue: str):
 
 @bot.slash_command(description="Leave the queue for Roulettes/Dungeons/Raids")
 async def unqueue(ctx):
-    print(f"{ctx.author.name}")
+    print(f"Removed {ctx.author.name} from all queues")
     await ctx.respond("Removing you from the queue...")
     member = ctx.author
     roles = [discord.utils.get(ctx.guild.roles, name="Raids Queue"),
@@ -56,6 +53,13 @@ async def unqueue(ctx):
     matching_roles = set(member.roles).intersection(set(roles))
     for role in matching_roles:
         await member.remove_roles(role, reason=None, atomic=True)
+        if role == "Dungeons":
+            channel = bot.get_channel(1097502016147824642)
+        if role == "Raids":
+           channel = bot.get_channel(1097502016147824643)
+        if role == "Roulettes":
+            channel = bot.get_channel(1097502016147824644)
+        await channel.send(f"{ctx.author.name} has left the queue.")
     await asyncio.sleep(1)
     await ctx.send("Removed you from the queue!")
 
