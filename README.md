@@ -1,7 +1,7 @@
 # KOTBO-queue-bot
 This is a bot for queuing in the knights of the blood oath zenith guild
 ## Setup
-1. change `.env.example` to `.env`
+1. change `example.env` to `.env`
 **In the .env file**
 2. You need to set `TOKEN` to your discord bot token
 3. Set `RAID_QUEUE_CHANNEL_ID` to the channel id of your raid queue channel
