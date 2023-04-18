@@ -13,4 +13,8 @@ Make sure you have pycord and python-dotenv installed (`pip install pycord` and 
 
 **The roles should preferably be name `Raid Queue`, `Dungeon Queue`, and `Roulette Queue`**
 
+**You need to make sure the KOTBO bot role has grester permissions/is higher up on the list for it to be able to add and remove the roles, and that the bot a=has access to the queue channels**
+
+**The queue channels should not be visible to the general server unless the have a queue role**
+
 Made by @Angry Fool#2653
