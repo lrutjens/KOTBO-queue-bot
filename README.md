@@ -12,4 +12,5 @@ Make sure you have python installed
 Make sure you have pycord and python-dotenv installed (`pip install pycord` and `pip install python-dotenv`)
 
 **The roles should preferably be name `Raid Queue`, `Dungeon Queue`, and `Roulette Queue`**
+
 Made by @Angry Fool#2653
